@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
 
 import { Product, Publisher } from '../../interfaces/product.interface';
 import { ProductService } from '../../services/products.service';
 import { switchMap } from 'rxjs';
+
+import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-product-form',
@@ -32,7 +35,8 @@ export class ProductFormComponent implements OnInit{
       private productService: ProductService,
       private activatedRoute:ActivatedRoute,
       private router: Router,
-      private snackBar: MatSnackBar ){}
+      private snackBar: MatSnackBar,
+      private dialog: MatDialog ){}
 
     e1() {
       var u='',i=0;
@@ -82,15 +86,25 @@ export class ProductFormComponent implements OnInit{
         this.currentProduct.id = this.e1();
         this.productService.addProduct( this.currentProduct )
         .subscribe( product =>{
-          // TODO mostrat snackbar, y navegar a /products/edit/product.id
+          // TODO mostrar snackbar, y navegar a /products/edit/product.id
           this.router.navigate(['/products/edit', product.id]);
 
           this.showSnackbar(`${ product.name } created!`);
         })
       }
+    }
 
+    onDeleteProduct(){
+        if( !this.currentProduct.id ) throw Error( 'product id is required');
 
-      //this.productService.updateProduct( this.productForm.value );
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+          data: this.productForm.value,
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+          console.log({ result });
+        });
     }
 
     showSnackbar( message: string ): void{

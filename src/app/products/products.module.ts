@@ -11,6 +11,11 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 import { CardComponent } from './components/card/card.component';
 import { ProductImagePipe } from './pipes/product-image.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -19,14 +24,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductFormComponent,
     ProductDetailComponent,
     CardComponent,
-    ProductImagePipe
+    ProductImagePipe,
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,
     ProductsRoutingModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
   ]
 })
 export class ProductsModule { }
