@@ -1,14 +1,101 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { Product, Publisher } from '../../interfaces/product.interface';
+import { ProductService } from '../../services/products.service';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
   styles: ``
 })
-export class ProductFormComponent {
+export class ProductFormComponent implements OnInit{
+
+    public productForm = new FormGroup({
+      id: new FormControl<string>(''),
+      name: new FormControl<string>('', { nonNullable: true}),
+      description: new FormControl<string>(''),
+      price: new FormControl<number>(0, { nonNullable:true}),
+      publisher:new FormControl<Publisher>( Publisher.DCComics),
+      alt_img: new FormControl<string>(''),
+    });
 
     public publishers = [
       { id: 'DC Comics', desc: 'DC - Comics'},
       { id: 'Marvel Comics', desc: 'Marvel - Comics'},
     ];
+
+    constructor(
+      private productService: ProductService,
+      private activatedRoute:ActivatedRoute,
+      private router: Router,
+      private snackBar: MatSnackBar ){}
+
+    e1() {
+      var u='',i=0;
+      while(i++<36) {
+          var c='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'[i-1],r=Math.random()*16|0,v=c=='x'?r:(r&0x3|0x8);
+          u+=(c=='-'||c=='4')?c:v.toString(16)
+      }
+      return u;
+    }
+
+    get currentProduct(): Product {
+      const product = this.productForm.value as Product;
+
+      return product;
+    }
+
+    ngOnInit() : void{
+        if( !this.router.url.includes('edit')) return;
+
+        this.activatedRoute.params
+          .pipe(
+            switchMap( ({ id }) => this.productService.getProductById( id )),
+
+          ).subscribe( product =>{
+              if( !product ) return this.router.navigateByUrl('/');
+
+              this.productForm.reset( product );
+              return;
+          });
+    }
+
+    onSubmit(): void{
+
+      if ( this.productForm.invalid) return;
+
+      if( this.currentProduct.id){
+        this.productService.updateProduct( this.currentProduct )
+          .subscribe( product => {
+            // TODO mostrar snackbar
+            this.showSnackbar(`${ product.name } updated!`);
+          });
+
+        return;
+      }
+
+      if( !this.currentProduct.id){
+        this.currentProduct.id = this.e1();
+        this.productService.addProduct( this.currentProduct )
+        .subscribe( product =>{
+          // TODO mostrat snackbar, y navegar a /products/edit/product.id
+          this.router.navigate(['/products/edit', product.id]);
+
+          this.showSnackbar(`${ product.name } created!`);
+        })
+      }
+
+
+      //this.productService.updateProduct( this.productForm.value );
+    }
+
+    showSnackbar( message: string ): void{
+        this.snackBar.open( message, 'done', {
+          duration: 2500,
+        })
+    }
 }

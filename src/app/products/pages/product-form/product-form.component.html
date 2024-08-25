@@ -1,8 +1,8 @@
-<h1>
-  Editar / Agregar
+<h5>
+  {{ currentProduct.id ? 'Editar' : 'Agregar'}}
   producto
-  <small>Superman</small>
-</h1>
+  <small *ngIf="currentProduct.id">{{ currentProduct.name }}</small>
+</h5>
 
 <mat-divider class="mb-2"></mat-divider>
 
@@ -10,13 +10,14 @@
   <div class="col-12 sm:col-6">
     <mat-card>
       <mat-card-content>
-          <div class="grid">
+          <form [formGroup]="productForm" class="grid" (ngSubmit)="onSubmit()">
             <mat-form-field class="col-12 sm:col-6">
               <mat-label>Nombre</mat-label>
               <input
                 matInput
                 type="text"
                 required
+                formControlName="name"
                 />
             </mat-form-field>
 
@@ -24,8 +25,9 @@
               <mat-label>Precio</mat-label>
               <input
                 matInput
-                type="text"
+                type="number"
                 required
+                formControlName ="price"
                 />
             </mat-form-field>
 
@@ -34,35 +36,49 @@
               <input
                 matInput
                 type="text"
-                required
+                formControlName ="description"
                 />
             </mat-form-field>
 
             <mat-form-field class="col-12">
               <mat-label>Marca</mat-label>
-              <mat-select required="">
+              <mat-select
+                formControlName ="publisher"
+                required>
                 <mat-option *ngFor="let publisher of publishers"
                   [value] ="publisher.id">
                   {{ publisher.desc }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
-          </div>
+
+            <mat-form-field class="col-12">
+              <mat-label>Imagen alternativa</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName ="alt_img"
+                />
+            </mat-form-field>
+          </form>
 
           <div class="flex justify-content-between">
             <button
+              *ngIf="currentProduct.id"
               mat-flat-button
               color="warn"
             >
               Eliminar
             </button>
+            <span></span>
 
             <button
               mat-flat-button
               color="primary"
+              (click)="onSubmit()"
             >
               <mat-icon>save</mat-icon>
-              Crear
+              Guardar
             </button>
           </div>
       </mat-card-content>
@@ -70,7 +86,7 @@
   </div>
   <div class="col-12 sm:col-6">
     <mat-card>
-      <img src="" alt="imagen del producto" mat-card-image>
+      <img [src]="currentProduct | productImage " alt="imagen del producto" mat-card-image>
     </mat-card>
   </div>
 </div>

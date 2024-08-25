@@ -8,7 +8,7 @@ export class ProductImagePipe implements PipeTransform {
 
   transform(product: Product): string {
     if( !product.id && !product.alt_img){
-      return 'assets/no_image.png';
+      return 'assets/no-image.png';
     }
 
     if( product.alt_img ) return product.alt_img;

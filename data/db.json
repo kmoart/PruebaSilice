@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "usuario": "John Doe",
       "email": "john.due@gmail.com"
     }
@@ -19,7 +19,8 @@
       "name": "Superman",
       "publisher": "DC Comics",
       "description": "Action Comics #1",
-      "price": 230
+      "price": 230,
+      "alt_img": ""
     },
     {
       "id": "dc-flash",
@@ -146,6 +147,14 @@
       "publisher": "Marvel Comics",
       "description": "The Fantastic Four #48",
       "price": 210
+    },
+    {
+      "id": "cc100800-98b3-4440-a7c7-c2fb893b59f0",
+      "name": "Punisher",
+      "description": "Punisher #2",
+      "price": 245,
+      "publisher": "DC Comics",
+      "alt_img": "https://cdnb.artstation.com/p/assets/images/images/058/573/209/large/ken-heaton-punisher-ny-alley-03-enhanced.jpg?1674491362"
     }
   ]
 }
