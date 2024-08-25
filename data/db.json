@@ -1,0 +1,151 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "usuario": "John Doe",
+      "email": "john.due@gmail.com"
+    }
+  ],
+  "products": [
+    {
+      "id": "dc-batman",
+      "name": "Batman",
+      "publisher": "DC Comics",
+      "description": "Detective Comics #27",
+      "price": 250
+    },
+    {
+      "id": "dc-superman",
+      "name": "Superman",
+      "publisher": "DC Comics",
+      "description": "Action Comics #1",
+      "price": 230
+    },
+    {
+      "id": "dc-flash",
+      "name": "Flash",
+      "publisher": "DC Comics",
+      "description": "Flash Comics #1",
+      "price": 245
+    },
+    {
+      "id": "dc-green",
+      "name": "Green Lantern",
+      "publisher": "DC Comics",
+      "description": "All-American Comics #16",
+      "price": 240
+    },
+    {
+      "id": "dc-arrow",
+      "name": "Green Arrow",
+      "publisher": "DC Comics",
+      "description": "More Fun Comics #73",
+      "price": 200
+    },
+    {
+      "id": "dc-wonder",
+      "name": "Wonder Woman",
+      "publisher": "DC Comics",
+      "description": "All Star Comics #8",
+      "price": 220
+    },
+    {
+      "id": "dc-martian",
+      "name": "Martian Manhunter",
+      "publisher": "DC Comics",
+      "description": "Detective Comics #225",
+      "price": 250
+    },
+    {
+      "id": "dc-robin",
+      "name": "Robin/Nightwing",
+      "publisher": "DC Comics",
+      "description": "Detective Comics #38",
+      "price": 240
+    },
+    {
+      "id": "dc-blue",
+      "name": "Blue Beetle",
+      "publisher": "DC Comics",
+      "description": "Mystery Men Comics #1",
+      "price": 200
+    },
+    {
+      "id": "dc-black",
+      "name": "Black Canary",
+      "publisher": "DC Comics",
+      "description": "Flash Comics #86",
+      "price": 245
+    },
+    {
+      "id": "marvel-spider",
+      "name": "Spider Man",
+      "publisher": "Marvel Comics",
+      "description": "Amazing Fantasy #15",
+      "price": 240
+    },
+    {
+      "id": "marvel-captain",
+      "name": "Captain America",
+      "publisher": "Marvel Comics",
+      "description": "Captain America Comics #1",
+      "price": 210
+    },
+    {
+      "id": "marvel-iron",
+      "name": "Iron Man",
+      "publisher": "Marvel Comics",
+      "description": "Tales of Suspense #39",
+      "price": 250
+    },
+    {
+      "id": "marvel-thor",
+      "name": "Thor",
+      "publisher": "Marvel Comics",
+      "description": "Journey into Myster #83",
+      "price": 250
+    },
+    {
+      "id": "marvel-hulk",
+      "name": "Hulk",
+      "publisher": "Marvel Comics",
+      "description": "The Incredible Hulk #1",
+      "price": 240
+    },
+    {
+      "id": "marvel-wolverine",
+      "name": "Wolverine",
+      "publisher": "Marvel Comics",
+      "description": "The Incredible Hulk #180",
+      "price": 230
+    },
+    {
+      "id": "marvel-daredevil",
+      "name": "Daredevil",
+      "publisher": "Marvel Comics",
+      "description": "Daredevil #1",
+      "price": 247
+    },
+    {
+      "id": "marvel-hawkeye",
+      "name": "Hawkeye",
+      "publisher": "Marvel Comics",
+      "description": "Tales of Suspense #57",
+      "price": 220
+    },
+    {
+      "id": "marvel-cyclops",
+      "name": "Cyclops",
+      "publisher": "Marvel Comics",
+      "description": "X-Men #1",
+      "price": 225
+    },
+    {
+      "id": "marvel-silver",
+      "name": "Silver Surfer",
+      "publisher": "Marvel Comics",
+      "description": "The Fantastic Four #48",
+      "price": 210
+    }
+  ]
+}
