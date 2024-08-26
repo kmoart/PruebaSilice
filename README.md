@@ -2,14 +2,33 @@
 
 ## Dev
 
-1. Clonar el proyecto desde la url :
+Proceso de instalación y ejecución de la app PruebaSilice
 
-2. Ejecutar npm ```npm install```
+1. Instalar en el equipo de ejecución la librería nodejs que se
+    encuentra en la web oficial de nodejs https://nodejs.org/en/download/prebuilt-installer
+
+    y hacer click en el botón Download nodejs
+
+    Hacer doble click sobre el instalador descargado y seguir pasos del instalador
+
+
+2.  Crear una carpeta en el disco duro, asignadole algun nombre
+
+    abrir una terminal, luego situarse dentro de la ruta de la carpeta creada anteriormente
+
+  Clonar el proyecto desde la url : 
+
+      git clone git@github.com:kmoart/PruebaSilice.git
+
+  Una vez clonado el proyecto , situarse dentro del nombre del proyecto
+
+  en este caso llamado PruebaSilice
+
+3. Ejecutar ```npm install```
 
 3. Levantar backend ```npm run backend```
 
 4. Ejecutar la app ```npm start``` o bien ```ng serve -o```
-
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.4.
