@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
@@ -18,10 +18,10 @@ import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-
 export class ProductFormComponent implements OnInit{
 
     public productForm = new FormGroup({
-      id: new FormControl<string>(''),
-      name: new FormControl<string>('', { nonNullable: true}),
+      id: new FormControl<string>('',),
+      name: new FormControl<string>('',[ Validators.required,Validators.minLength(3),]),
       description: new FormControl<string>(''),
-      price: new FormControl<number>(0, { nonNullable:true}),
+      price: new FormControl<number>(0, [ Validators.required,Validators.min(0),]),
       publisher:new FormControl<Publisher>( Publisher.DCComics),
       alt_img: new FormControl<string>(''),
     });

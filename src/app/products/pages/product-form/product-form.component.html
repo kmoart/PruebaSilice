@@ -16,9 +16,10 @@
               <input
                 matInput
                 type="text"
-                required
                 formControlName="name"
                 />
+                <mat-error *ngIf="productForm.get('name')?.hasError('required')">*Campo requerido</mat-error>
+                <mat-error *ngIf="productForm.get('name')?.hasError('minlength')">*Campo minimo 3 caracteres</mat-error>
             </mat-form-field>
 
             <mat-form-field class="col-12 sm:col-6">
@@ -29,6 +30,8 @@
                 required
                 formControlName ="price"
                 />
+                <mat-error *ngIf="productForm.get('price')?.hasError('required')">*Campo requerido</mat-error>
+                <mat-error *ngIf="productForm.get('price')?.hasError('min')">*Campo debe ser mayor a 0</mat-error>
             </mat-form-field>
 
             <mat-form-field class="col-12">
