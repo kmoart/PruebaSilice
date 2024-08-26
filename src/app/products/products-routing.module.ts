@@ -4,6 +4,7 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { ProductFormComponent } from './pages/product-form/product-form.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
+import { EditFormGuard } from './guards/editForm.guard';
 
 // localhost:4200/productos/''
 const routes: Routes = [
@@ -12,7 +13,7 @@ const routes: Routes = [
     component:  LayoutComponent,
     children: [
       { path: 'new-product', component: ProductFormComponent},
-      { path: 'edit/:id', component: ProductFormComponent},
+      { path: 'edit/:id', component: ProductFormComponent, canActivate:[EditFormGuard]},
       { path: 'list', component: ProductListComponent},
       { path: ':id', component: ProductDetailComponent},
       { path: '**', redirectTo: 'list'}
