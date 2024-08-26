@@ -26,9 +26,11 @@ Proceso de instalación y ejecución de la app PruebaSilice
 
 3. Ejecutar ```npm install```
 
-3. Levantar backend ```npm run backend```
+4. Levantar backend ```npm run backend```
 
-4. Ejecutar en otra terminal la app ```npm start``` o bien ```ng serve -o```
+5. Ejecutar en otra terminal la app ```npm start``` o bien ```ng serve -o```
+
+6. Abrir un navegador web y ejecutar la dirección http://localhost:4200/
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.4.
