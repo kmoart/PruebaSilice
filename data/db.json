@@ -15,6 +15,14 @@
       "price": 250
     },
     {
+      "id": "dc-superman",
+      "name": "Superman",
+      "publisher": "DC Comics",
+      "description": "Action Comics #1",
+      "price": 230,
+      "alt_img": ""
+    },
+    {
       "id": "dc-flash",
       "name": "Flash",
       "publisher": "DC Comics",
